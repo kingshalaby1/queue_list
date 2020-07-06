@@ -67,6 +67,24 @@ class Queue {
             
         }while(current != NULL);
     }
+    
+    Node* dequeue(){
+        if(head == NULL){
+            cout << "queue is empty!\n\n";
+            return NULL;
+        }
+        
+        Node* temp_head = head;
+        if(head == tail){
+            head = tail = NULL;
+        }
+        else{
+            head = head-> next;
+            head->prev = NULL;
+        }
+        return temp_head;
+    }
+
 };
 
 #endif /* queue_hpp */

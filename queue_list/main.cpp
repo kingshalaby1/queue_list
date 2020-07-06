@@ -15,6 +15,11 @@ int main(int argc, const char * argv[]) {
     q->enqueue(new Node(10));
     q->enqueue(new Node(20));
     q->enqueue(new Node(30));
+
     q->traverse();
+    Node* deq = q->dequeue();
+    deq->print();
+    q->traverse();
+    
     return 0;
 }
