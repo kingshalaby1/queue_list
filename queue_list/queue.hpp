@@ -102,11 +102,11 @@ class Queue {
     
     int size(){
         if(head == NULL){
-            cout << "queue is empty!\n\n";
+            cout << "queue is empty!\n";
             return 0 ;
         }
         Node* current = head;
-        int counter = 1;
+        int counter = 0;
         do{
             current = current->next;
             counter++;

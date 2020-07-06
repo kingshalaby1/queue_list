@@ -22,6 +22,9 @@ int main(int argc, const char * argv[]) {
     q->enqueue(new Node(20));
     q->enqueue(new Node(30));
     
+    size = q->size();
+    cout << "queue size: " << size << "\n\n";
+    
     Node* first = q->first();
     first->print();
     
