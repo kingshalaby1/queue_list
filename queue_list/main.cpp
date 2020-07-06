@@ -7,9 +7,14 @@
 //
 
 #include <iostream>
+#include "queue.hpp"
+
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    Queue* q = new Queue();
+    q->enqueue(new Node(10));
+    q->enqueue(new Node(20));
+    q->enqueue(new Node(30));
+    q->traverse();
     return 0;
 }
