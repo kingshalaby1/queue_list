@@ -85,6 +85,36 @@ class Queue {
         return temp_head;
     }
 
+    Node* first(){return head;}
+    
+    Node* last(){return tail;}
+    
+    bool is_empty(){
+        if(head){
+            cout << "queue is NOT empty\n";
+            return false;
+        }
+        else{
+            cout << "queue is empty\n";
+            return true;
+        }
+    }
+    
+    int size(){
+        if(head == NULL){
+            cout << "queue is empty!\n\n";
+            return 0 ;
+        }
+        Node* current = head;
+        int counter = 1;
+        do{
+            current = current->next;
+            counter++;
+            
+        }while(current != NULL);
+        return counter;
+    }
+    
 };
 
 #endif /* queue_hpp */
