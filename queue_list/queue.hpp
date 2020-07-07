@@ -115,6 +115,61 @@ class Queue {
         return counter;
     }
     
+    Node* set_end_pointer(Node* current, int* steps){
+        cout << "end : " << current->data << endl;
+        *steps = *steps - 1;
+        
+        if(*steps > 0 && current->next != NULL){
+            current = current->next;
+            current = set_end_pointer(current, steps);
+        }
+        if(*steps > 0)
+            return NULL;
+        
+        cout << "end will be: " << current->data << endl;
+        
+        return current;
+    }
+    
+    
+    //Sliding Window Maximum summation of all sub-arrays of size k
+    int max_sum_of_subarray(int array_size){
+        int max_sum = 0, temp_sum = 0;
+        int temp_size = array_size;
+        int queue_size = size();
+        Node* start = head;
+        Node* end = set_end_pointer(start, &temp_size);
+        Node* current;
+        
+        
+        if (array_size > queue_size || array_size < 1){
+            cout << "insufficient array size, it should be > 1 and < " << queue_size << endl;
+            return -1;
+        }
+        cout << "looping \n\n";
+
+        if(end == NULL)
+            cout << "end is null\n";
+        while(end){
+            cout << "looping big while\n\n";
+            temp_sum = 0;
+            current = start;
+            while(current != end->next){
+                temp_sum += current->data;
+                cout << "temp sum: " << temp_sum << " data: " << current->data << endl;
+                current = current->next;
+            }
+            cout << "temp sum: " << temp_sum << endl;
+            if(temp_sum > max_sum)
+                max_sum = temp_sum;
+            
+//            max_sum = temp_sum > max_sum? temp_sum : max_sum;
+            start = start->next;
+            end = end->next;
+        }
+        return max_sum;
+    }
+    
 };
 
 #endif /* queue_hpp */

@@ -9,6 +9,8 @@
 #include <iostream>
 #include "queue.hpp"
 
+
+
 int main(int argc, const char * argv[]) {
     Queue* q = new Queue();
     
@@ -32,6 +34,12 @@ int main(int argc, const char * argv[]) {
     last->print();
     
     q->traverse();
+    
+    q->enqueue(new Node(40));
+    q->enqueue(new Node(30));
+    q->enqueue(new Node(20));
+    int max = q->max_sum_of_subarray(3);
+    cout << "max sum: " << max << endl;
     
     Node* deq = q->dequeue();
     deq->print();
